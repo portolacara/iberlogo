@@ -1,10 +1,6 @@
-export async function onRequestGet({ env }) {
-  if (!env.TURNSTILE_SITE_KEY) {
-    return Response.json({ error: "Contact form is not configured." }, { status: 503, headers: { "Cache-Control": "no-store" } });
-  }
-
+export async function onRequestGet() {
   return Response.json(
-    { siteKey: env.TURNSTILE_SITE_KEY },
-    { headers: { "Cache-Control": "no-store" } }
+    { error: "El formulario de contacto por email ya no está disponible. Contacta con Iberlogo por teléfono o WhatsApp." },
+    { status: 410, headers: { "Cache-Control": "no-store" } }
   );
 }
